@@ -56,7 +56,7 @@ public class Lab6 {
         for (int i = 0; i < userInput.length(); ++i) {
             if ((userInput.charAt(i) == 'a') || (userInput.charAt(i) == 'e')
                     || (userInput.charAt(i) == 'i') || (userInput.charAt(i) == 'o')
-                    || (userInput.charAt(i) == 'u')|| (userInput.charAt(i) == 'y')){
+                    || (userInput.charAt(i) == 'u')){
 
 
 
