@@ -52,17 +52,22 @@ public class Lab6 {
     public static String piggifiedConsonants(String userInput) {
         String newWord = "";
         StringBuffer strBuffer = new StringBuffer(userInput);
-        for (int i = 1; i < userInput.length()-1; ++i) {
+
+        for (int i = 0; i < userInput.length(); ++i) {
             if ((userInput.charAt(i) == 'a') || (userInput.charAt(i) == 'e')
                     || (userInput.charAt(i) == 'i') || (userInput.charAt(i) == 'o')
-                    || (userInput.charAt(i) == 'u')) {
+                    || (userInput.charAt(i) == 'u')|| (userInput.charAt(i) == 'y')){
+
+
 
                 strBuffer = strBuffer.append((strBuffer.subSequence(0, i)));
                 strBuffer = strBuffer.append("ay");
                 strBuffer.delete(0,i);
                 newWord = strBuffer.toString();
+                return newWord;
             }
-        }return newWord;
+        }
+        return null;
     }
 
 
@@ -78,8 +83,6 @@ public class Lab6 {
     }
 }
 
-//TODO
-    //add y as a vowel
 
-    //TODO
-        //figure out how to apply to full sentences
+//TODO
+//figure out how to apply to full sentences
