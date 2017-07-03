@@ -19,18 +19,31 @@ public class Lab6 {
             Scanner scnr = new Scanner(System.in);
             String userInput = scnr.nextLine();
 
+
             // 4. translate user input
             // 4.1 convert input to lowercase
             userInput = userInput.toLowerCase();
-            String result;
-            if (isVowel(userInput)) {//vowels
-                result = piggifiedVowels(userInput);
-            } else {
-                result = piggifiedConsonants(userInput);
-            } //consonants
+            userInput = userInput.replaceAll("'", "");
+            if (userInput.isEmpty()) {
+                System.out.println("Nothing entered.");
+                keepGoing = "y"; // make it loop again if nothing is entered.
+                continue;
+            }
 
-            // 5. display result
-            System.out.println(result);
+            if (userInput.contains("@")) { // checking for email address only - HOW TO INCLUDE ALL SYMBOLS
+                System.out.println(userInput);
+            }
+            else {
+                String result;
+                if (isVowel(userInput)) {//vowels
+                    result = piggifiedVowels(userInput);
+                } else {
+                    result = piggifiedConsonants(userInput);
+                } //consonants
+
+                // 5. display result
+                System.out.println(result);
+            }
 
             // 6. prompt user to play again
             System.out.println("Would you like to continue? (Y/N)");
@@ -58,8 +71,6 @@ public class Lab6 {
                     || (userInput.charAt(i) == 'i') || (userInput.charAt(i) == 'o')
                     || (userInput.charAt(i) == 'u')){
 
-
-
                 strBuffer = strBuffer.append((strBuffer.subSequence(0, i)));
                 strBuffer = strBuffer.append("ay");
                 strBuffer.delete(0,i);
@@ -67,7 +78,7 @@ public class Lab6 {
                 return newWord;
             }
         }
-        return null;
+        return userInput;
     }
 
 
